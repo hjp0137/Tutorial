@@ -1,0 +1,17 @@
+#원 그리기
+
+import math
+
+N = int(input("Size:"))
+half = (N-1)/2
+
+for i in range(N):
+          x = i - half
+          for j in range(N):
+                    y = j - half
+                    k = math.sqrt(x**2 + y**2)
+                    if half-1 < k <= half:
+                              print("■", end='')
+                    else:
+                              print("□", end='')
+          print()
