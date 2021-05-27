@@ -1,0 +1,29 @@
+# 삼각함수 계산
+
+nfact = {1:1, 2:2}
+accuracy = 10
+
+def fact(n):
+    global nfact
+    if n in nfact:
+        return nfact[n]
+    else:
+        ans = n*fact(n-1)
+        nfact[n] = ans
+        return ans
+
+def sin(n):
+    ans = 0
+    for i in range(1, accuracy, 2):
+        ans += (n ** i) / fact(i) * (-1) ** (i // 2)
+    return ans
+
+def cos(n):
+    ans = 1
+    for i in range(2, accuracy, 2):
+        ans += (n ** i) / fact(i) * (-1) ** (i//2)
+    return ans
+
+
+x = float(input('input number: '))
+print('result: ', sin(x) + cos(x))
